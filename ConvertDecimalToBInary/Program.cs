@@ -1,5 +1,5 @@
 ﻿//Ler um numero inteiro e converter para o correspondente binário.
-int userValue, quotient, reminderValue = 0;
+int userValue, quotient;
 int[] binaryNumber = new int[8];
 
 userInteraction();
@@ -12,26 +12,25 @@ foreach (int value in binaryNumber)
 
 int[] changeValueToBinary(int valor)
 {
+    //iniciando quotient com o valor da variavel valor
     quotient = valor;
-    for(int i = 0; i < binaryNumber.Length; i++)
+    //o for já vem ao contrário colocando os dados no vetor
+    for(int i = binaryNumber.Length -1; i >= 0; i--)
     {
-        if((quotient == 1) && (quotient % 2 == 0))
+        //pega o resto da divisão deste numero e armazena na posição i
+        binaryNumber[i] = quotient % 2;
+        //atualizar o valor pra divisão inteira do quociente por 2 
+        quotient /= 2;
+        //se o quociente for zero, encerra o loop
+
+        if(quotient == 0)
         {
-            i = binaryNumber.Length;
+            break;
         }
-        reminderValue = quotient % 2;        
-        putNumberInVector();
-        quotient = valor / 2;
-        valor = quotient;        
+              
     }
+    // depois a funcao retorna o vetor binaryNumber com os dados esperados
     return binaryNumber;
-}
-void putNumberInVector()
-{
-    for(int i = binaryNumber.Length - 1 ; i >= 0; i--)
-    {
-        binaryNumber[i] = reminderValue;
-    }
 }
 void userInteraction()
 {
