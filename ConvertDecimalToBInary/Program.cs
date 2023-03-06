@@ -10,10 +10,10 @@ foreach (int value in binaryNumber)
     Console.Write("{0} ", value);
 }
 
-int[] changeValueToBinary(int valor)
+void changeValueToBinary(int value)
 {
     //iniciando quotient com o valor da variavel valor
-    quotient = valor;
+    quotient = value;
     //o for já vem ao contrário colocando os dados no vetor
     for(int i = binaryNumber.Length -1; i >= 0; i--)
     {
